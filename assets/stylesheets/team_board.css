@@ -1,0 +1,45 @@
+h2 {
+  float: left;
+}
+
+select#version_id {
+  float: right;
+}
+
+table.team-board {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #eee;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table.team-board th h3 {
+  margin-top: 10px;
+}
+
+table.team-board th.assignee-column {
+  width: 80px;
+}
+
+table.team-board td.assignee-column {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+table.team-board tr.assignee {
+  border-bottom: 1px solid black;
+}
+
+table.team-board tr.assignee td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+table.team-board td .issue {
+  max-width: 250px;
+}
+
+table.team-board td .issue p.issue-number {
+  font-weight: bold;
+}

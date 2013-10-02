@@ -1,0 +1,41 @@
+<% html_title "Team Board" %>
+
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'team_board', :plugin => 'team_board' %>
+  <%= javascript_include_tag 'team_board', :plugin => 'team_board' %>
+<% end %>
+
+<h2>Team Board</h2>
+
+<%= select_tag 'version_id', options_from_collection_for_select(@versions, :id, :name, @current_version.id), :data => { :url => url_for(:version_id => 'VERSION') } %>
+
+<table class="team-board">
+  <thead>
+    <tr>
+      <th class="assignee-column"><%# Assignee %></th>
+      <% @issue_status.each do |status| %>
+        <th><h3><%= status.name %></h3></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignees.each do |assigned_to_id, issues| %>
+      <% assignee = issues.first.assigned_to %>
+      <% issues = issues.group_by { |i| i.status_id } %>
+      <tr class="assignee">
+        <td class="assignee-column"><%= avatar assignee %></td>
+
+        <% @issue_status.each do |status| %>
+          <td>
+          <% if issues.has_key?(status.id) %>
+            <% issues[status.id].each do |issue| %>
+              <%= render :partial => 'team_board/issue', :object => issue %>
+            <% end %>
+          <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,1 @@
+get '/:project_id/team_board', :to => 'team_board#show'

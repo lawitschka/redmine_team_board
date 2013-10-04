@@ -3,7 +3,7 @@ Redmine::Plugin.register :team_board do
   author 'Moritz Lawitschka'
   description 'Scrum-like dashboard for getting a quick overview of what your team is working on.'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
+  url 'http://lawitschka.github.io/redmine_team_board/'
   author_url 'http://lawitschka.me'
 
   # Permission definition
